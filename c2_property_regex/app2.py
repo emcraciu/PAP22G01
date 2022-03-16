@@ -1,8 +1,9 @@
 import re
 
 
-class Book():
+class Book:
     pattern = "^(?P<INC>#{1,3})\s+(?P<CHP>.+)"
+
     def __init__(self, filename):
         with open(filename, 'r') as file:
             self.file = file.read()
@@ -24,7 +25,6 @@ class Book():
                 if len(match.group('INC')) == 3:
                     ccc += 1
                 print(f'{c}.{cc}.{ccc} {match.group("CHP")}')
-
 
 
 book = Book('text.md')
