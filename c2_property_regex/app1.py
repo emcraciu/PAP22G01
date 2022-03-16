@@ -7,7 +7,7 @@ class SystemInformation:
     def ip_getter():
         result = os.popen('ipconfig')
         for line in result.readlines():
-            pattern = "IPv4 Address.*: (?P<IP>.*)"
+            pattern = r"IPv4 Address.*: (?P<IP>.*)"
             match = re.search(pattern, line)
             if match:
                 print(match.group("IP"))
@@ -16,7 +16,7 @@ class SystemInformation:
     def cp_usage():
         result = os.popen('wmic cpu get loadpercentage')
         for line in result.readlines():
-            pattern = "(?P<cpu_usage>\d+)"
+            pattern = r"(?P<cpu_usage>\d+)"
             match = re.search(pattern, line)
             if match:
                 print(match.group("cpu_usage"))
