@@ -37,6 +37,7 @@ def random_sleep(r: Lock):
     finally:
         r.acquire()  # this works for rLock
         r.release()
+        print()
         r.release()
     print("Completed sleeping: ", t)
 
